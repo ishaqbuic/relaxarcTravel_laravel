@@ -1,0 +1,15 @@
+pipeline{
+    agent any 
+    stages{
+        stage('Build'){
+            steps{
+                sh 'composer install'
+                sh 'mv .env.example .env'
+                sh 'apt install nodejs'
+                sh 'npm install'
+                sh 'php artisan key:generate'
+            }
+        }
+    }
+}
+
