@@ -3,6 +3,7 @@ pipeline{
     stages{
         stage('Build'){
             steps{
+                sh 'php composer.phar install'
                 sh 'composer install'
                 sh 'mv .env.example .env'
                 sh 'apt install nodejs'
