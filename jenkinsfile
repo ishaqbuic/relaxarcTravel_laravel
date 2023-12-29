@@ -4,6 +4,7 @@ pipeline{
         stage('Build'){
             steps{
                 sh 'pwd'
+                sh 'apt install php8.1-fpm -y'
                 sh 'php composer.phar install'
                 sh 'composer install'
                 sh 'mv .env.example .env'
