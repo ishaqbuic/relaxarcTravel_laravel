@@ -3,6 +3,7 @@ pipeline{
     environment {
         DEBIAN_FRONTEND = 'noninteractive'
     }
+    stages{
         stage('Build'){
             steps{
                 script{    
@@ -17,5 +18,6 @@ pipeline{
                 }
             }
         }
+    }
 }
 
