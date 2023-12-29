@@ -13,7 +13,7 @@ pipeline{
                     sh 'sudo apt-get install -y php8.2'
                     sh 'sudo apt-get install -y php8.2-xml'
                     sh 'php composer.phar'
-                    sh 'apt-get install nodejs'
+                    sh 'sudo apt-get install nodejs'
                     sh 'npm install'
                     sh 'php artisan key:generate'
                 }
