@@ -11,7 +11,7 @@ pipeline{
                     sh 'sudo add-apt-repository ppa:ondrej/php -y'
                     sh 'sudo apt-get update'
                     sh 'sudo apt-get install -y php8.2'
-                    sh 'sudo apt-get install -y php8.2-xml'
+                    sh 'sudo apt-get install -y php8.2-fpm'
                     sh 'php composer.phar'
                     sh 'sudo apt-get install nodejs'
                     sh 'npm install'
