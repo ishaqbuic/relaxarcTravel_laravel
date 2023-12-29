@@ -12,7 +12,7 @@ pipeline{
                     sh 'sudo apt-get update'
                     sh 'sudo apt-get install -y php8.2'
                     sh 'sudo apt-get install -y php8.2-xml'
-                    sh 'sudo php composer.phar install --ignore-platform-req=ext-curl'
+                    sh 'sudo php composer.phar'
                     sh 'sudo composer install'
                     sh 'sudo mv .env.example .env'
                     sh 'sudo apt-get install nodejs'
