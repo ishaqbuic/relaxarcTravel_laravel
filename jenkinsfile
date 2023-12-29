@@ -8,6 +8,7 @@ pipeline{
             steps{
                 script{    
                     sh 'pwd'
+                    sh 'sudo apt-get update'
                     sh 'sudo apt-get install -y php8.2'
                     sh 'sudo php composer.phar install'
                     sh 'sudo composer install'
