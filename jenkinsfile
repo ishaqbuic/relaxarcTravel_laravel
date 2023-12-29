@@ -8,12 +8,12 @@ pipeline{
             steps{
                 script{    
                     sh 'pwd'
-                    sh 'apt-get install -y php8.2'
-                    sh 'php composer.phar install'
-                    sh 'composer install'
-                    sh 'mv .env.example .env'
-                    sh 'apt-get install nodejs'
-                    sh 'npm install'
+                    sh 'sudo apt-get install -y php8.2'
+                    sh 'sudo php composer.phar install'
+                    sh 'sudo composer install'
+                    sh 'sudo mv .env.example .env'
+                    sh 'sudo apt-get install nodejs'
+                    sh 'sudo npm install'
                     sh 'php artisan key:generate'
                 }
             }
