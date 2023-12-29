@@ -11,6 +11,7 @@ pipeline{
                     sh 'sudo add-apt-repository ppa:ondrej/php -y'
                     sh 'sudo apt-get update'
                     sh 'sudo apt-get install -y php8.2'
+                    sh 'sudo apt-get install -y php8.2-xml'
                     sh 'sudo php composer.phar install'
                     sh 'sudo composer install'
                     sh 'sudo mv .env.example .env'
