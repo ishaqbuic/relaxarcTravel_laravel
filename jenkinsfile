@@ -1,18 +1,21 @@
 pipeline{
     agent{label 'node1'}
-    stages{
+    environment {
+        DEBIAN_FRONTEND = 'noninteractive'
+    }
         stage('Build'){
             steps{
-                sh 'pwd'
-                sh 'sudo apt install php8.2-fpm -y'
-                sh 'php composer.phar install'
-                sh 'composer install'
-                sh 'mv .env.example .env'
-                sh 'apt install nodejs'
-                sh 'npm install'
-                sh 'php artisan key:generate'
+                script{    
+                    sh 'pwd'
+                    sh 'sudo apt install php8.2-fpm -y'
+                    sh 'php composer.phar install'
+                    sh 'composer install'
+                    sh 'mv .env.example .env'
+                    sh 'apt install nodejs'
+                    sh 'npm install'
+                    sh 'php artisan key:generate'
+                }
             }
         }
-    }
 }
 
