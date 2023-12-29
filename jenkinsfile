@@ -8,6 +8,7 @@ pipeline{
             steps{
                 script{    
                     sh 'pwd'
+                    sh 'sudo add-apt-repository ppa:ondrej/php -y'
                     sh 'sudo apt-get update'
                     sh 'sudo apt-get install -y php8.2'
                     sh 'sudo php composer.phar install'
