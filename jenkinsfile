@@ -8,7 +8,7 @@ pipeline{
             steps{
                 script{    
                     sh 'pwd'
-                    sh 'sudo apt-get install php8.2 -y'
+                    sh 'apt-get install -y php8.2'
                     sh 'php composer.phar install'
                     sh 'composer install'
                     sh 'mv .env.example .env'
