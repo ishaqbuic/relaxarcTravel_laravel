@@ -15,7 +15,7 @@ pipeline {
                     // Print current directory permissions and ownership
                     sh 'ls -l /home/ubuntu/jenkins_node/workspace/relaxarcTravel'
                     //Change ownership of the project directory to the user running Jenkins
-                    sh 'sudo chown -R jenkins_user:jenkins_group /home/ubuntu/jenkins_node/workspace/relaxarcTravel'
+                    sh 'sudo chown -R ubuntu:ubuntu /home/ubuntu/jenkins_node/workspace/relaxarcTravel'
                     //Allow the Jenkins user to write to the .env file
                     sh 'sudo chmod 664 /home/ubuntu/jenkins_node/workspace/relaxarcTravel/.env'
                 }   
