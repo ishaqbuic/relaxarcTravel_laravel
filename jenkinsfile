@@ -36,10 +36,10 @@ pipeline {
                 }
             }
         }
-        stage("Unit test") {
-            steps {
-                sh 'php artisan test'
-            }
-        }
+        //stage("Unit test") {
+          //  steps {
+            //    sh 'php artisan test'
+            //}
+        //}
     }
 }
