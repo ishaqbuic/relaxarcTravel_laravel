@@ -31,7 +31,7 @@ pipeline {
                     sh 'composer install'
                     sh 'composer --version'
                     sh 'pwd'
-                    sh 'cp ${ENV_FILE} env.example'
+                    sh 'sudo cp ${ENV_FILE} env.example'
                     sh 'php artisan key:generate'
                     sh 'php artisan migrate'
                 }
