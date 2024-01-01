@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Build") {
             environment {
-                ENV_FILE = credentials("envExmpl")
+                ENV_FILE = credentials("exp.env")
             }
             steps {
                 sh 'php --version'
