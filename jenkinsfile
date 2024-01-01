@@ -1,6 +1,11 @@
 pipeline {
     agent{label 'node1'}
     stages {
+        stage("Checkout"){
+            steps{
+                checkout scm
+            }
+        }
         stage("Build") {
             environment {
                 ENV_FILE = credentials("exp.env")
@@ -9,9 +14,8 @@ pipeline {
                 sh 'php --version'
                 sh 'composer install'
                 sh 'composer --version'
-                //sh 'cp .env.example .env'
+                sh 'cp ${ENV_FILE} .env'
                 sh 'php artisan key:generate'
-                sh 'cp .env .env.testing'
                 sh 'php artisan migrate'
             }
         }
