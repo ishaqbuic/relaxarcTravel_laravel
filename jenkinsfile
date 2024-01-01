@@ -30,7 +30,7 @@ pipeline {
                     sh 'php --version'
                     sh 'composer install'
                     sh 'composer --version'
-                    sh 'cp ${ENV_FILE} .env'
+                    sh 'cp ${ENV_FILE} env.example'
                     sh 'php artisan key:generate'
                     sh 'php artisan migrate'
                 }
