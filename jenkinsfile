@@ -3,7 +3,22 @@ pipeline {
     stages {
         stage("Checkout"){
             steps{
+                // This step retrieves the source code from the configured SCM
                 checkout scm
+            }
+        }
+        stage('Debug') {
+            steps {
+                script {
+                    // Print current user
+                    sh 'whoami'
+                    // Print current directory permissions and ownership
+                    sh 'ls -l /home/ubuntu/jenkins_node/workspace/relaxarcTravel'
+                    //Change ownership of the project directory to the user running Jenkins
+                    sh 'sudo chown -R jenkins_user:jenkins_group /home/ubuntu/jenkins_node/workspace/relaxarcTravel'
+                    //Allow the Jenkins user to write to the .env file
+                    sh 'sudo chmod 664 /home/ubuntu/jenkins_node/workspace/relaxarcTravel/.env'
+                }   
             }
         }
         stage("Build") {
@@ -11,12 +26,14 @@ pipeline {
                 ENV_FILE = credentials("exp.env")
             }
             steps {
-                sh 'php --version'
-                sh 'composer install'
-                sh 'composer --version'
-                sh 'cp ${ENV_FILE} .env'
-                sh 'php artisan key:generate'
-                sh 'php artisan migrate'
+                script{
+                    sh 'php --version'
+                    sh 'composer install'
+                    sh 'composer --version'
+                    sh 'cp ${ENV_FILE} .env'
+                    sh 'php artisan key:generate'
+                    sh 'php artisan migrate'
+                }
             }
         }
         stage("Unit test") {
